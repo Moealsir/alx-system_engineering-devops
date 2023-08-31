@@ -17,6 +17,9 @@ git push
 
 cd 0x01-shell_permissions
 
+echo '#I created this script to solve all the tasks for me
+i solve them one by one' > README.md
+
 echo '#!/bin/bash
 su betty' > 0-iam_betty
 
