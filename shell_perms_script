@@ -1,0 +1,78 @@
+#!/bin/bash
+
+#this script created by Moealsir
+
+cd /root/alx-system_engineering-devops
+
+#i will write the readme file at the end
+
+mkdir 0x01-shell_permissions
+
+echo '#I created this script to solve all the tasks for me 
+i solve them one by one' > README.md
+
+git add .
+git commit -m 'readme file uploaded'
+git push
+
+cd 0x01-shell_permissions
+
+echo '#!/bin/bash
+su betty' > 0-iam_betty
+
+echo '#!/bin/bash
+whoami' > 1-who_am_i
+
+echo '#!/bin/bash
+groups' > 2-groups
+
+echo '#!/bin/bash
+chown betty hello' > 3-new_owner
+
+echo '#!/bin/bash
+touch hello' > 4-empty
+
+echo '#!/bin/bash
+chmod u+x hello' > 5-execute
+
+echo '#!/bin/bash
+chmod u+x,g+x,o+r hello' > 6-multiple_permissions
+
+echo '#!/bin/bash
+chmod a+x hello' > 7-everybody
+
+echo '#!/bin/bash
+chmod 007 hello' > 8-James_Bond
+
+echo '#!/bin/bash
+chmod 753 hello' > 9-John_Doe
+
+echo '#!/bin/bash
+chmod --reference=olleh hello' > 10-mirror_permissions
+
+echo '#!/bin/bash
+chmod -R a+x */ ' > 11-directories_permissions
+
+echo '#!/bin/bash
+mkdir -m 751 my_dir' > 12-directory_permissions
+
+echo '#!/bin/bash
+chgrp school hello' > 13-change_group
+
+echo '#!/bin/bash
+chown vincent:staff *' > 100-change_owner_and_group
+
+echo '#!/bin/bash
+chown -h vincent:staff _hello' > 101-symbolic_link_permissions
+
+echo '#!/bin/bash
+chown --from=guillaume betty hello' > 102-if_only
+
+echo '#!/bin/bash
+telnet towel.blinkenlights.nl' > 103-Star_Wars
+
+chmod +x 0-iam_betty 1-who_am_i 2-groups 3-new_owner 4-empty 5-execute 6-multiple_permissions 7-everybody 8-James_Bond 9-John_Doe 10-mirror_permissions 11-directories_permissions 12-directory_permissions 13-change_group 100-change_owner_and_group 101-symbolic_link_permissions 102-if_only 103-Star_Wars
+
+git add .
+git commit -m 'all tasks have been solved by one script'
+git push
