@@ -8,11 +8,11 @@ while [ $count -lt 10 ]
 do
     if [ $count -eq 3 ]
     then 
-        echo "Hi"
+        echo "bad luck"
         ((count++))
     elif [ $count -eq 7 ]
     then
-        echo "Hi"
+        echo "bad luck"
         ((count++))
     else
         echo "Best School"
