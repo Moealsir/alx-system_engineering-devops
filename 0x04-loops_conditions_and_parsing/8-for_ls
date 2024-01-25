@@ -1,1 +1,2 @@
 #!/usr/bin/env bash
+for i in *; do if [ -f "$i" ] || [ -d "$i" ]; then display=$(echo "$i" | cut -d'-' -f2-); echo "$display"; fi ; done
