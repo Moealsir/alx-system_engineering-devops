@@ -12,7 +12,7 @@ do
         ((count++))
     elif [ $count -eq 7 ]
     then
-        echo "bad luck"
+        echo "good luck"
         ((count++))
     else
         echo "Best School"
