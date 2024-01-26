@@ -1,1 +1,24 @@
 #!/usr/bin/env bash
+
+# Get the PID of the current script
+script_pid=$$
+
+# Iterate over processes in /proc
+for pid_dir in /proc/*/; do
+    pid=$(basename "$pid_dir")
+    cmd_file="$pid_dir/cmdline"
+
+    # Check if the process exists and has a cmdline file
+    if [ -d "$pid_dir" ] && [ -f "$cmd_file" ]; then
+        # Extract the process name from cmdline
+        process_name=$(tr '\0' ' ' < "$cmd_file" | awk '{print $1}')
+
+        # Check if the process name contains the word "bash"
+        if [[ "$process_name" == *bash* ]]; then
+            echo "$pid $process_name"
+        fi
+    fi
+done
+
+# Display the PID of the current script
+echo "$script_pid $0"
