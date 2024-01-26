@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # description of code
-f
+
+pkill -SIGKILL -f "7-highlander"
