@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
-puts ARGV[0].scan(/(?<=from:)(.\w+)|(?<=to:)(.\w+)|(?<=flags:)([^]]+)/).join
+log_line = ARGV[0]
+
+matches = log_line.scan(/(?<=from:)\w+|(?<=to:)\w+|(?<=flags:)\w+[^]]+/)
+
+puts matches.join(',') unless matches.empty?
