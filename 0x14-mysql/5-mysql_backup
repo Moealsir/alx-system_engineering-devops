@@ -27,7 +27,4 @@ mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --all-databases > "$SQL_DUMP"
 # Compress the dump file
 tar -czf "$ARCHIVE_NAME" "$SQL_DUMP"
 
-# Optional: Remove the SQL dump file to clean up
-rm "$SQL_DUMP"
-
 echo "Backup created successfully: $ARCHIVE_NAME"
