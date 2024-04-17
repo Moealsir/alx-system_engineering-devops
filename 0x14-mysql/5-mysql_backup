@@ -11,20 +11,5 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-# Define password
-MYSQL_ROOT_PASSWORD=$1
-
-# Define date for the filename
-DATE=$(date +%d-%m-%Y)
-
-# Filename for the SQL dump and the tar archive
-SQL_DUMP="backup.sql"
-ARCHIVE_NAME="${DATE}.tar.gz"
-
-# Dump all databases
-mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --all-databases > "$SQL_DUMP"
-
-# Compress the dump file
-tar -czf "$ARCHIVE_NAME" "$SQL_DUMP"
-
-echo "Backup created successfully: $ARCHIVE_NAME"
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -czvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
