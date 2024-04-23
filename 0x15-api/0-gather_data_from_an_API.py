@@ -27,7 +27,7 @@ def to_do_list(emp_id):
 
         for task in t_finished:
             title = task.get("title")
-            print(f"\t{title}")
+            print(f"\t {title}")
 
 
 if __name__ == "__main__":
