@@ -7,7 +7,7 @@ import sys
 
 
 if __name__ == '__main__':
-    if sys.argv > 1:
+    if len(sys.argv) > 1:
         uid = sys.argv[1]
         url = 'https://jsonplaceholder.typicode.com/'
         req = requests.get(f'{url}users/{uid}')
