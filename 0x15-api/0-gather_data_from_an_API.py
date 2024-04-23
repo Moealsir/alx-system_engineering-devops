@@ -23,7 +23,7 @@ def to_do_list(emp_id):
             if task.get("completed") is True:
                 t_finished.append(task)
         num_t_finished = len(t_finished)
-        print("Employee {} is done with tasks ({}/{}):".
+        print("Employee {} is done with tasks({}/{}):".
               format(name, num_t_finished, tasks_num))
 
         for task in t_finished:
