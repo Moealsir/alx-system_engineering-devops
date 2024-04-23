@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ gather data from an api """
-import sys
 import requests
+import sys
 
 
 def to_do_list(emp_id):
