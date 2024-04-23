@@ -17,6 +17,7 @@ if __name__ == '__main__':
         with open(f'{uid}.csv', 'w', newline='') as f:
             write = csv.writer(f, quoting=csv.QUOTE_ALL)
             for task in todos:
-                write.writerow([f'"{uid}"', f'"{username}"',
-                                f'"{task.get("completed")}"',
-                                f'"{task.get("title")}"'])
+                write.writerow([int(uid),
+                                username,
+                                task.get('completed'),
+                                task.get('title')])
