@@ -27,6 +27,7 @@ def recurse(subreddit, hot_list=[], after=None):
         return hot_list
     return None
 
+
 def count_words(subreddit, word_list, after="", word_frequency=None):
     """A function that retrieves hot articles.
     """
