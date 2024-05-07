@@ -3,8 +3,29 @@
 count
 """
 import requests
-from 2-recurse import recurse
 
+
+def recurse(subreddit, hot_list=[], after=None):
+    """Returns the number of subscribers for a given subreddit"""
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
+    params = {"limit": 100, "after": after} if after else {"limit": 100}
+
+    response = requests.get(
+        url, headers=headers, params=params, allow_redirects=False)
+
+    if response.status_code == 200:
+        data = response.json()
+        posts = data.get("data", {}).get("children", [])
+        for post in posts:
+            hot_list.append(post["data"]["title"])
+
+        after = data["data"].get("after")
+
+        if after:
+            return recurse(subreddit, hot_list, after)
+        return hot_list
+    return None
 
 def count_words(subreddit, word_list, after="", word_frequency=None):
     """A function that retrieves hot articles.
@@ -17,8 +38,9 @@ def count_words(subreddit, word_list, after="", word_frequency=None):
             word_frequency.items(), key=lambda x: (-x[1], x[0])
         )
         for word, count in sorted_word_frequency:
-            print(f"{word}: {count}") if count else return
-
+            if count:
+                print(f"{word}: {count}")
+        return
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {"User-Agent": "reddit-query"}
     params = {"limit": 100, "after": after}
