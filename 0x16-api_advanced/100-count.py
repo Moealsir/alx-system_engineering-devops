@@ -40,3 +40,5 @@ def count_words(subreddit, word_list, after="", word_frequency=None):
         return None
     except Exception:
         return None
+
+    count_words(subreddit, word_list, after, word_frequency)
