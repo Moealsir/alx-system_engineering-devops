@@ -1,49 +1,46 @@
-# Postmortem: Outage on Web Application Server
+# Postmortem: When the Web Application Server Took a Siesta
 
 ## Issue Summary
 
 - **Duration:** May 10, 2024, 2:00 PM - May 10, 2024, 4:00 PM (UTC)
-- **Impact:** The web application server experienced a complete outage, resulting in a 50% reduction in user access. Users attempting to access the application were met with connection errors or extremely slow response times.
-- **Root Cause:** The outage was caused by a misconfiguration in the load balancer settings, leading to an overload on one of the application server instances.
+- **Impact:** Picture this: our beloved web application server decided to take an impromptu siesta, leaving users stranded in the digital wilderness. Approximately 50% of users experienced the frustration of slow response times or downright rejection from the server's slumber.
+- **Root Cause:** Turns out, our server had a case of Mondayitis and succumbed to a misconfiguration in the load balancer settings, which led to one poor server instance bearing the brunt of the workload.
+
+![Sleepy Server](https://example.com/sleepy_server_diagram.png)
 
 ## Timeline
 
 - **Detection:** May 10, 2024, 2:00 PM (UTC)
-  - The issue was detected when monitoring alerts indicated a significant increase in response times and error rates.
+  - The incident jolted us awake when monitoring alerts rudely interrupted our peaceful coding flow, screaming about increased response times and error rates.
 - **Actions Taken:**
-  - Engineers investigated the application server logs and network traffic to identify potential causes.
-  - Initial assumption pointed towards database issues due to recent database migrations.
-  - As the investigation progressed, it was discovered that only one of the application server instances was overloaded.
+  - Bleary-eyed engineers stumbled into action, sifting through server logs and network traffic in a desperate attempt to uncover the root cause.
+  - Initially, we blamed it on the coffee shortage-induced database migrations, but reality hit harder than a Monday morning alarm clock when we realized only one server instance was sweating bullets.
 - **Misleading Paths:**
-  - Initially, the focus was on database-related issues, leading to wasted time investigating database performance.
-  - There was a brief consideration of DDoS attacks due to the sudden surge in traffic, but no evidence supported this hypothesis.
+  - In our drowsy state, we briefly entertained the idea of a caffeine-deprived DDoS attack, but even our sleep-deprived brains knew that was a stretch.
 - **Escalation:**
-  - The incident was escalated to the DevOps team for further assistance in diagnosing the load balancer configuration.
+  - As the situation worsened, we sounded the alarm (literally) and summoned the DevOps team to help us slap some sense into the load balancer.
 - **Resolution:**
-  - The misconfigured load balancer settings were identified and corrected, redistributing the traffic evenly across all application server instances.
-  - Normal operation was restored by rolling back the load balancer configuration changes.
+  - With caffeine-infused determination, we pinpointed and corrected the misconfigured load balancer settings, spreading the workload love evenly across all server instances.
+  - Peace was restored to the digital realm as we rolled back the load balancer changes, bidding adieu to our server's siesta.
 
 ## Root Cause and Resolution
 
 - **Root Cause:**
-  - The root cause was traced to a misconfiguration in the load balancer, causing it to disproportionately distribute traffic to one application server instance.
-  - This imbalance led to overutilization of resources on the overloaded instance, resulting in degraded performance and eventual outage.
+  - Our server's Mondayitis-induced misconfiguration in the load balancer led to an uneven distribution of workload, overwhelming one poor server instance.
 - **Resolution:**
-  - The load balancer configuration was adjusted to evenly distribute traffic among all available application server instances.
-  - Additionally, monitoring alerts were configured to promptly detect and notify of any similar load imbalance issues in the future.
+  - We banished the misconfigured load balancer settings to the shadow realm and implemented measures to ensure workload equality among server instances.
 
 ## Corrective and Preventative Measures
 
 - **Improvements/Fixes:**
-  - Implement automated testing for load balancer configurations to prevent similar misconfigurations in the future.
-  - Enhance monitoring capabilities to provide real-time insights into server performance and traffic distribution.
+  - Instituting automated testing for load balancer configurations to prevent future Mondayitis-induced mishaps.
+  - Enhancing our monitoring tools to keep a watchful eye on server performance and workload distribution.
 - **Tasks:**
   1. Develop automated tests to validate load balancer configurations before deployment.
-  2. Conduct a comprehensive review of load balancer settings to identify and rectify any potential misconfigurations.
-  3. Enhance monitoring tools to include alerts for load balancer health and traffic distribution.
-  4. Schedule regular load testing exercises to assess system performance under varying traffic conditions.
-  
+  2. Conduct a thorough review of load balancer settings to eliminate any potential misconfigurations.
+  3. Beef up monitoring capabilities to include alerts for load balancer health and workload distribution.
+  4. Schedule regular load testing sessions to keep our servers on their toes.
+
 ## Conclusion
 
-The outage on the web application server was swiftly addressed through diligent investigation and corrective actions. By identifying and rectifying the misconfiguration in the load balancer, we have mitigated the risk of similar incidents occurring in the future. Moving forward, we remain committed to implementing robust monitoring and testing procedures to uphold the reliability and performance of our systems.
-
+In the grand saga of server mishaps, this was but a brief interlude of chaos swiftly quelled by the heroic efforts of our intrepid team. As we bid farewell to our server's unexpected siesta, we emerge stronger and wiser, armed with the knowledge to fend off future Mondayitis-induced disasters. Let us march forward with vigilance, for the digital wilderness is a treacherous realm, but with coffee in hand and wit in our hearts, we shall prevail!
