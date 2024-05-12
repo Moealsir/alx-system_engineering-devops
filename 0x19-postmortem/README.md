@@ -2,7 +2,7 @@
 
 ## Issue Summary
 
-- **Duration:** May 10, 2024, 2:00 PM - May 10, 2024, 4:00 PM (UTC)
+- **Duration:** Apr 10, 2024, 2:00 PM - Apr 10, 2024, 4:00 PM (UTC)
 - **Impact:** Picture this: our beloved web application server decided to take an impromptu siesta, leaving users stranded in the digital wilderness. Approximately 50% of users experienced the frustration of slow response times or downright rejection from the server's slumber.
 - **Root Cause:** Turns out, our server had a case of Mondayitis and succumbed to a misconfiguration in the load balancer settings, which led to one poor server instance bearing the brunt of the workload.
 
